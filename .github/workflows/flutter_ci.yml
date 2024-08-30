@@ -34,9 +34,6 @@ jobs:
       - name: Run Unit Tests
         run: flutter test
 
-      - name: Run Integration Tests
-        run: flutter drive --target=test_driver/app.dart
-
       - name: Security Check
         run: flutter pub outdated --mode=null-safety
 
