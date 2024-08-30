@@ -12,7 +12,8 @@ void main() {
 
     // Aperta o botão
     await tester.tap(find.text('Inverta a Palavra'));
-    await tester.pumpWidget(const WordReverserApp()); // aguardar a navegação para a próxima tela
+    await tester.pumpWidget(
+        const WordReverserApp()); // aguardar a navegação para a próxima tela
 
     // Verificar se a palavra invertida é exibida
     expect(find.text('Palavra Invertida: olleh'), findsOneWidget);
