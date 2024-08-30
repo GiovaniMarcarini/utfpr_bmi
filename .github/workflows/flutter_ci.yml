@@ -35,7 +35,7 @@ jobs:
         run: flutter test
 
       - name: Security Check
-        run: flutter pub outdated --mode=null-safety
+        run: flutter pub outdated
 
       - name: Build App
         run: flutter build apk --debug
