@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import '../lib/main.dart';
+import 'package:utfpr_bmi/main.dart';
 
 void main() {
   test('String reversal should be correct', () {

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(WordReverserApp());
+  runApp(const WordReverserApp());
 }
 
 class WordReverserApp extends StatelessWidget {
+  const WordReverserApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,17 +15,19 @@ class WordReverserApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WordInputScreen(),
+      home: const WordInputScreen(),
     );
   }
 }
 
 class WordInputScreen extends StatefulWidget {
+  const WordInputScreen({super.key});
+
   @override
-  _WordInputScreenState createState() => _WordInputScreenState();
+  WordInputScreenState createState() => WordInputScreenState();
 }
 
-class _WordInputScreenState extends State<WordInputScreen> {
+class WordInputScreenState extends State<WordInputScreen> {
   final _wordController = TextEditingController();
 
   void _reverseWord() {
@@ -44,7 +48,7 @@ class _WordInputScreenState extends State<WordInputScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-        title: Text('Inversor de Palavras'),
+        title: const Text('Inversor de Palavras'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -53,12 +57,12 @@ class _WordInputScreenState extends State<WordInputScreen> {
           children: [
             TextField(
               controller: _wordController,
-              decoration: InputDecoration(labelText: 'Insira a Palavra'),
+              decoration: const InputDecoration(labelText: 'Insira a Palavra'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _reverseWord,
-              child: Text('Inverta a Palavra'),
+              child: const Text('Inverta a Palavra'),
             ),
           ],
         ),
@@ -70,19 +74,19 @@ class _WordInputScreenState extends State<WordInputScreen> {
 class WordResultScreen extends StatelessWidget {
   final String reversedWord;
 
-  WordResultScreen({required this.reversedWord});
+  const WordResultScreen({super.key, required this.reversedWord});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Palavra Invertida'),
+        title: const Text('Palavra Invertida'),
       ),
       body: Center(
         child: Text(
           'Palavra Invertida: $reversedWord',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24),
+          style: const TextStyle(fontSize: 24),
         ),
       ),
     );
