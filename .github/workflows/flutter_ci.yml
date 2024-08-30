@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          node-version: '20'
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -27,14 +25,21 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Check Code Formatting
+        run: flutter format --set-exit-if-changed .
+
       - name: Run Lint
         run: flutter analyze
 
       - name: Run Unit Tests
         run: flutter test
 
+      - name: Run Integration Tests
+        run: flutter drive --target=test_driver/app.dart
+
+      - name: Security Check
+        run: flutter pub outdated --mode=null-safety
+
       - name: Build App
         run: flutter build apk --debug
 
-    #  - name: Deploy (utfpr_bmi)
-    #   run: deploy_command_here
